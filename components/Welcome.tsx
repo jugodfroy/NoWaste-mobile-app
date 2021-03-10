@@ -4,10 +4,10 @@ import {Text, View, StyleSheet, Image, TouchableOpacity, Alert} from 'react-nati
 class Welcome extends React.Component{
     render(){
         return (
-            <View style={{flex :1, backgroundColor: '#E67E22', justifyContent: 'center', alignContent :'center' }}>
+            <View style={{flex :1, backgroundColor: '#E67E22'}}>
                 
               <View style={style.bloc1}>
-                <Image style= {style.logo} source={require('./img/logo.png')}/>
+                <Image style= {style.logo} source={require('./img/round_logo.png')}/>
               </View>
               <View style={style.bloc2}>
                 <Text style={style.welcome_text}>Bienvenu sur NoWaste !</Text>
@@ -30,6 +30,7 @@ const style = StyleSheet.create({  //StyleSheet : optimise les perfs de l'appli 
         flex :1,
         paddingTop : 20,
         backgroundColor : '#E67E22',    //orange carrot
+        //alignSelf :'center'
     },
 
     bloc2: {
@@ -37,6 +38,7 @@ const style = StyleSheet.create({  //StyleSheet : optimise les perfs de l'appli 
         backgroundColor : '#ecf0f1',    //soft white
         borderTopLeftRadius: 50,
         borderTopRightRadius : 50,
+
 
     },
 
@@ -49,8 +51,8 @@ const style = StyleSheet.create({  //StyleSheet : optimise les perfs de l'appli 
     },
 
     logo:{
-        width: 250, 
-        height: 250, 
+        width: 240, 
+        height: 240, 
         borderRadius:200, 
         alignSelf: 'center',
         marginTop : 20,

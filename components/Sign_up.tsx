@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, View, StyleSheet, ScrollView, TouchableOpacity, Alert, TextInput} from 'react-native'
-import { Ionicons, Feather } from '@expo/vector-icons';
+import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 class Sign_up extends React.Component{
     render(){
@@ -22,6 +22,16 @@ class Sign_up extends React.Component{
                             <Text style={{alignSelf :'center'}}> Numéro de téléphone</Text>
                         </View>
                         <TextInput style={style.input_id} placeholder='0666666666' />
+                        <View style={style.input_boxes}>
+                            <MaterialCommunityIcons name="city-variant-outline" color={"#E67E22"} size={24} />
+                            <Text style={{alignSelf :'center'}}> Ville</Text>
+                        </View>
+                        <TextInput style={style.input_id} placeholder='Nom de la ville' />
+                        <View style={style.input_boxes}>
+                            <Ionicons name="location-outline" color={"#E67E22"} size={24} />
+                            <Text style={{alignSelf :'center'}}> Adresse postale</Text>
+                        </View>
+                        <TextInput style={style.input_id} placeholder='Numéro et nom de rue' />
                         <View style={style.input_boxes}>
                             <Ionicons name="lock-closed-outline" color={"#E67E22"} size={24} />
                             <Text style={{alignSelf :'center'}}> Mot de passe</Text>
