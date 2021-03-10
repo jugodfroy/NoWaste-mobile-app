@@ -8,20 +8,21 @@ import Welcome from './components/Welcome'
 import Sign_up from './components/Sign_up'
 import Profile from './components/Profile'
 import Map from './components/Map'
+import Liste from './components/Liste'
 
 const Tab = createMaterialBottomTabNavigator();
 
 function MyTabs() {
   return (
     <Tab.Navigator
-    initialRouteName="Profile"
+    initialRouteName="Map"
     activeColor='#E67E22' //couleur de l'icon de la vue active
     inactiveColor="#ecf0f1"
     barStyle={{ backgroundColor: '#2980B9'}} //bleu 
     >
       <Tab.Screen
-        name="Feed"
-        component={Welcome}
+        name="Liste"
+        component={Liste}
         options={{
           tabBarLabel: 'Liste',
           tabBarIcon: ({ color }) => (
@@ -30,7 +31,7 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Notifications"
+        name="Carte"
         component={Map}
         options={{
           tabBarLabel: 'Carte',

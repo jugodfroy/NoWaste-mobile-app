@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text, Image , StyleSheet, Alert, ScrollView } from 'react-native'
-import { TouchableRipple } from 'react-native-paper'
+import { View, Text, Image , StyleSheet, Alert, ScrollView, TouchableOpacity } from 'react-native'
+import { TouchableRipple } from 'react-native-paper'    //alternative a touchable opacity
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+
 
 class Profile extends React.Component{
     render(){
@@ -38,36 +39,36 @@ class Profile extends React.Component{
 
 
                     <View style={style.menu_container}>
-                        <TouchableRipple onPress={() => alert('Pressed')}>
+                        <TouchableOpacity onPress={() => alert('Pressed')}>
                             <View style={style.menu_button}>
                                 <MaterialCommunityIcons name="account-details-outline" color={"#E67E22"} size={26} />
                                 <Text style={style.text_menu}>Mes informations</Text>
                             </View>
-                        </TouchableRipple>
-                        <TouchableRipple onPress={() => alert('Pressed')}>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => alert('Pressed')}>
                             <View style={style.menu_button}>
                                 <MaterialCommunityIcons name="history" color={"#E67E22"} size={26} />
                                 <Text style={style.text_menu}>Mon historique</Text>
                             </View>
-                        </TouchableRipple>
-                        <TouchableRipple onPress={() => alert('Pressed')}>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => alert('Pressed')}>
                             <View style={style.menu_button}>
                                 <Ionicons name="settings-outline" color={"#E67E22"} size={26} />
                                 <Text style={style.text_menu}>Paramètres de l'application </Text>
                             </View>
-                        </TouchableRipple>
-                        <TouchableRipple onPress={() => alert('Pressed')}>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => alert('Pressed')}>
                             <View style={style.menu_button}>
                                 <Ionicons name="information-circle-outline" color={"#E67E22"} size={26} />
                                 <Text style={style.text_menu}>Informations sur l'application </Text>
                             </View>
-                        </TouchableRipple>
-                        <TouchableRipple onPress={() => alert('Pressed')}>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => alert('Pressed')}>
                             <View style={style.menu_button}>
                                 <Feather name="x-octagon" color={"#E67E22"} size={26} />
                                 <Text style={style.text_menu_red}>Se déconnecter </Text>
                             </View>
-                        </TouchableRipple>
+                        </TouchableOpacity>
                         
 
 
