@@ -4,7 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
-
+import ProfileInfo from './ProfileInfo'
+import EditProfile from './EditProfile'
+import AppInfo  from './AppInfo'
 
 function ProfileScreen({ navigation }) {
   return (
@@ -37,31 +39,31 @@ function ProfileScreen({ navigation }) {
                     </View>
                 </View>
                 <View style={style.menu_container}>
-                    <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ProfileInfo', { screenName: 'Mes informations' })}>
                         <View style={style.menu_button}>
                             <MaterialCommunityIcons name="account-details-outline" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Mes informations</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('History', { screenName: 'Historique' })}>
                         <View style={style.menu_button}>
                             <MaterialCommunityIcons name="history" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Mon historique</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Settings', { screenName: "Paramètres de l'applicaiton" })}>
                         <View style={style.menu_button}>
                             <Ionicons name="settings-outline" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Paramètres de l'application </Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                    <TouchableOpacity onPress={() => navigation.navigate("AppInfo", { screenName: "Informations de l'application" })}>
                         <View style={style.menu_button}>
                             <Ionicons name="information-circle-outline" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Informations sur l'application </Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Disconnect', { screenName: 'Se déconnecter' })}>
                         <View style={style.menu_button}>
                             <Feather name="x-octagon" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu_red}>Se déconnecter </Text>
@@ -83,24 +85,34 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer independent={true}>    
-      <Stack.Navigator initialRouteName="ProfileScreen" >
+      <Stack.Navigator initialRouteName="ProfileScreen" headerMode='none'  >
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-        <Stack.Screen name="EditProfile" component={Todev} />
+        <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
         <Stack.Screen name="History" component={Todev} />
         <Stack.Screen name="Settings" component={Todev} />
-        <Stack.Screen name="Informations" component={Todev} />
+        <Stack.Screen name="AppInfo" component={AppInfo} />
         <Stack.Screen name="Disconnect" component={Todev} />
+
+        <Stack.Screen name="EditProfile" component={EditProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function Todev() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>IN PROGRESS</Text>
-    </View>
-  );
+function Todev({ navigation, route }) {
+    return (
+        <View>
+            <View style={style.Header}>
+                <TouchableOpacity onPress={() => navigation.goBack()} style={{}}>
+                    <Ionicons name="chevron-back-outline" color={"#E67E22"} size={35} />
+                </TouchableOpacity>
+                <Text style={style.title}>{route.params.screenName}</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>IN PROGRESS</Text>
+            </View>
+        </View>
+    );
 }
 
 
@@ -190,6 +202,24 @@ const style=StyleSheet.create({
       paddingLeft : 10,
       fontSize : 15,
       color : '#e74c3c'   //beau rouge pour la deconnexion
+  },
+
+  //TODEV
+  Header: {
+    flexDirection: "row",
+    paddingTop: 25,
+    //flex : 1,
+    borderBottomWidth: 2,
+    borderColor: '#E67E22',
+    paddingBottom: 10
+
+  },
+
+  title: {
+    alignSelf: 'center',
+    //flex : 1,
+    fontSize: 20,
+    justifyContent: 'center'
   },
 })
 

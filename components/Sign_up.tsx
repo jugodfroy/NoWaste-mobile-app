@@ -21,7 +21,7 @@ class Sign_up extends React.Component{
                             <Feather name="phone" color={"#E67E22"} size={24} />
                             <Text style={{alignSelf :'center'}}> Numéro de téléphone</Text>
                         </View>
-                        <TextInput style={style.input_id} placeholder='0666666666' />
+                        <TextInput keyboardType='number-pad' style={style.input_id} placeholder='0666666666' />
                         <View style={style.input_boxes}>
                             <MaterialCommunityIcons name="city-variant-outline" color={"#E67E22"} size={24} />
                             <Text style={{alignSelf :'center'}}> Ville</Text>

@@ -43,6 +43,7 @@ const style=StyleSheet.create({
 
     title_box:{
         flexDirection:'row',
+        justifyContent : 'space-between',
         paddingHorizontal : 10,
         
     },

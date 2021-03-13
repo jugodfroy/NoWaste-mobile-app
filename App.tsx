@@ -6,7 +6,7 @@ import { MaterialCommunityIcons, AntDesign, Feather } from '@expo/vector-icons';
 import Login from './components/Login'
 import Welcome from './components/Welcome'
 import Sign_up from './components/Sign_up'
-import Profile from './components/Profile'
+import ProfileScreen from './components/ProfileStackNavigator'
 import Map from './components/Map'
 import Liste from './components/Liste'
 
@@ -42,7 +42,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile} 
+        component={ProfileScreen} 
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (

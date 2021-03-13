@@ -51,6 +51,7 @@ const style = StyleSheet.create({
         right: 0,
         paddingBottom: 10,
 
+
       },
 })
 
