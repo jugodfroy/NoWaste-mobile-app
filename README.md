@@ -11,9 +11,9 @@ Avoir un smartphone sous Android ou IOS avec l'application "EXPO GO" d'installé
 
 Clonez le repository dans le dossier que vous souhaitez.
 
-### Running 
+### Lancement de l'application 
 
-Ouvrir un terminal, aller dans la racine du dossier puis utiliser la commande :
+Ouvrir un terminal, aller dans la racine du dossier téléchargé puis utiliser la commande :
 
 ```
 npm start
