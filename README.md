@@ -4,14 +4,14 @@ Application mobile en react-native développée dans le cadre du la Junior Acad�
 
 ### Prérequis
 
-Avoir NodeJS et expo d'installé
+Avoir NodeJS et expo d'installés + 
 Avoir un smartphone sous Android ou IOS avec l'application "EXPO GO" d'installée.
 
 ### Téléchargement
 
 Clonez le repository dans le dossier que vous souhaitez.
 
-## Running 
+### Running 
 
 Ouvrir un terminal, aller dans la racine du dossier puis utiliser la commande :
 
