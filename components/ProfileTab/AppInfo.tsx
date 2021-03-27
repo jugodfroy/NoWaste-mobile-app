@@ -3,18 +3,14 @@ import {  View, Text, TouchableOpacity, StyleSheet,  } from 'react-native';
 
 import { Ionicons, } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import StackHeader from '../Common/StackHeader'
 
 function Appinfo({ navigation, route }) {
+    const data=route.params.screenName
     return (
         <ScrollView>
             <View>
-                <View style={style.Header}>
-                    <TouchableOpacity onPress={() => navigation.goBack()} style={{}}>
-                        <Ionicons name="chevron-back-outline" color={"#E67E22"} size={35} />
-                    </TouchableOpacity>
-                    <Text style={style.title}>{route.params.screenName}</Text>
-                </View>
+                <StackHeader routeInfo = {data}/>
 
                 <View style={style.container}>
                     <Text style={style.text}>
@@ -30,22 +26,6 @@ function Appinfo({ navigation, route }) {
 
 const style = StyleSheet.create({
 
-    Header: {
-      flexDirection: "row",
-      paddingTop: 25,
-      //flex : 1,
-      borderBottomWidth: 2,
-      borderColor: '#E67E22',
-      paddingBottom: 10
-  
-    },
-  
-    title: {
-      alignSelf: 'center',
-      //flex : 1,
-      fontSize: 20,
-      justifyContent: 'center'
-    },
   
     container: {
         paddingHorizontal: 10,

@@ -2,7 +2,7 @@ import React from 'react'
 import  { View, ScrollView, Animated, StyleSheet} from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { MaterialCommunityIcons, AntDesign, Feather } from '@expo/vector-icons';
-import Item from './Item'
+import Dish from '../DishesTab/Dish'
 
 class Map extends React.Component{
     render(){
@@ -31,10 +31,10 @@ class Map extends React.Component{
                         showsHorizontalScrollIndicator={false}
                         style={style.scrollView}
                         >
-                            <Item/>
-                            <Item/>
-                            <Item/>
-                            <Item/>
+                            <Dish/>
+                            <Dish/>
+                            <Dish/>
+                            <Dish/>
                     </Animated.ScrollView>
             </View>
                 

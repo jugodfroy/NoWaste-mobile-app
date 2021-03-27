@@ -4,9 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
-import ProfileInfo from './ProfileInfo'
-import EditProfile from './EditProfile'
-import AppInfo  from './AppInfo'
+import ProfileInfo from '../ProfileTab/ProfileInfo'
+import EditProfile from '../ProfileTab/EditProfile'
+import AppInfo  from '../ProfileTab/AppInfo'
+import StackHeader from '../Common/StackHeader'
+
+
 
 function ProfileScreen({ navigation }) {
   return (
@@ -15,7 +18,7 @@ function ProfileScreen({ navigation }) {
 
                 <View style={style.main_profile_container}>
                     <View>
-                        <Image source={require("./img/pp.jpg")} style={style.pp} />
+                        <Image source={require("../img/pp.jpg")} style={style.pp} />
                     </View>
         
                     <View style={style.name}>
@@ -82,7 +85,7 @@ function ProfileScreen({ navigation }) {
 
 const Stack = createStackNavigator();
 
-function App() {
+function ProfileNavigator() {
   return (
     <NavigationContainer independent={true}>    
       <Stack.Navigator initialRouteName="ProfileScreen" headerMode='none'  >
@@ -92,7 +95,6 @@ function App() {
         <Stack.Screen name="Settings" component={Todev} />
         <Stack.Screen name="AppInfo" component={AppInfo} />
         <Stack.Screen name="Disconnect" component={Todev} />
-
         <Stack.Screen name="EditProfile" component={EditProfile} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -100,14 +102,11 @@ function App() {
 }
 
 function Todev({ navigation, route }) {
+    const data=route.params.screenName
+
     return (
         <View>
-            <View style={style.Header}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={{}}>
-                    <Ionicons name="chevron-back-outline" color={"#E67E22"} size={35} />
-                </TouchableOpacity>
-                <Text style={style.title}>{route.params.screenName}</Text>
-            </View>
+            <StackHeader routeInfo = {data}/>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>IN PROGRESS</Text>
             </View>
@@ -204,24 +203,8 @@ const style=StyleSheet.create({
       color : '#e74c3c'   //beau rouge pour la deconnexion
   },
 
-  //TODEV
-  Header: {
-    flexDirection: "row",
-    paddingTop: 25,
-    //flex : 1,
-    borderBottomWidth: 2,
-    borderColor: '#E67E22',
-    paddingBottom: 10
-
-  },
-
-  title: {
-    alignSelf: 'center',
-    //flex : 1,
-    fontSize: 20,
-    justifyContent: 'center'
-  },
+  
 })
 
 
-export default App;
+export default ProfileNavigator;

@@ -2,17 +2,16 @@ import * as React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
 import { Ionicons, } from '@expo/vector-icons';
-
+import { useNavigation } from '@react-navigation/native';
+import StackHeader from '../Common/StackHeader'
 
 function EditProfile({ navigation, route }) {
+    const data=route.params.screenName
+
     return (
         <View>
-            <View style={style.Header}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={{}}>
-                    <Ionicons name="chevron-back-outline" color={"#E67E22"} size={35} />
-                </TouchableOpacity>
-                <Text style={style.title}>{route.params.screenName}</Text>
-            </View>
+            <StackHeader routeInfo = {data}/>
+            
 
             <View style={style.container}>
                 <TextInput style={style.input} defaultValue={route.params.placeholder} />
@@ -32,22 +31,6 @@ function EditProfile({ navigation, route }) {
 
 const style = StyleSheet.create({
 
-    Header: {
-      flexDirection: "row",
-      paddingTop: 25,
-      //flex : 1,
-      borderBottomWidth: 2,
-      borderColor: '#E67E22',
-      paddingBottom: 10
-  
-    },
-  
-    title: {
-      alignSelf: 'center',
-      //flex : 1,
-      fontSize: 20,
-      justifyContent: 'center'
-    },
   
     container: {
         paddingHorizontal: 10,

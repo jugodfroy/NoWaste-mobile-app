@@ -1,28 +1,29 @@
 import React from 'react'
 import {Text, View, StyleSheet, Image, TouchableOpacity, Alert} from 'react-native'
 
-class Welcome extends React.Component{
-    render(){
-        return (
-            <View style={{flex :1, backgroundColor: '#E67E22'}}>
-                
-              <View style={style.bloc1}>
-                <Image style= {style.logo} source={require('./img/round_logo.png')}/>
-              </View>
-              <View style={style.bloc2}>
+
+function Welcome({ navigation }) {
+
+    return (
+        <View style={{ flex: 1, backgroundColor: '#E67E22' }}>
+
+            <View style={style.bloc1}>
+                <Image style={style.logo} source={require('../img/round_logo.png')} />
+            </View>
+            <View style={style.bloc2}>
                 <Text style={style.welcome_text}>Bienvenu sur NoWaste !</Text>
                 <Text style={style.slogan}>Ensemble, luttons contre le gaspillage alimentaire et la précarité étudiante.</Text>
                 <View style={style.bottom}>
-                    <TouchableOpacity style={style.button} onPress={() => Alert.alert('Simple Button pressed')}>
-                        <Text style={{color : '#ecf0f1', textAlign:'center', fontSize : 18}}>C'est parti !</Text>
-                        
-                    </TouchableOpacity>
-                </View>   
+                    <TouchableOpacity style={style.button} onPress={() => navigation.navigate('Login')}>
+                        <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>C'est parti !</Text>
 
-              </View>
+                    </TouchableOpacity>
+                </View>
+
             </View>
-        )
-    }
+        </View>
+    )
+
 }
 
 const style = StyleSheet.create({  //StyleSheet : optimise les perfs de l'appli en donnant un ID unique à la var
