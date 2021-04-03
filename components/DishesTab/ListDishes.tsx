@@ -10,7 +10,7 @@ function ListDetails({ navigation, route }) {
     return (
         <View style={{ paddingTop: 20 }}>
             <ScrollView>
-                <TouchableOpacity style={style.AddDishbtn} onPress={() => Alert.alert('TO DEV')}>
+                <TouchableOpacity style={style.AddDishbtn} onPress={() => navigation.navigate('AddDish', {screenName:'Proposer un plat'})}>
                     <View style={{flexDirection : 'row', alignSelf:'center'}}>
 
                         <AntDesign name="pluscircleo" color={"#E67E22"} size={26} />

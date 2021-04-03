@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native'
-import { Ionicons } from '@expo/vector-icons';
 import StackHeader from '../Common/StackHeader'
 
 
@@ -26,7 +25,7 @@ function DishDetails({ navigation, route }) {
 
 
                         <Text style={style.details}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Cuisiné il y a :{'\n'}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Périme dans :{'\n'}</Text>
                             2 jours
                         </Text>
 

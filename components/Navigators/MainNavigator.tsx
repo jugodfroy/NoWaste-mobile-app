@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons , Feather } from '@expo/vector-icons';
 
-import ProfileScreen from '../Navigators/ProfileStackNavigator'
-import Map from '../MapTab/Map'
+import ProfileNavigator from './ProfileNavigator'
+import MapNavigator from '../Navigators/MapNavigator'
 import DishesNavigator from '../Navigators/DishesNavigators'
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -20,6 +21,7 @@ function MainNavigator() {
       activeColor='#E67E22' //couleur de l'icon de la vue active
       inactiveColor="#ecf0f1"
       barStyle={{ backgroundColor: '#2980B9'}} //bleu 
+
       >
         <Tab.Screen
           name="Liste"
@@ -33,7 +35,7 @@ function MainNavigator() {
         />
         <Tab.Screen
           name="Carte"
-          component={Map}
+          component={MapNavigator}
           options={{
             tabBarLabel: 'Carte',
             tabBarIcon: ({ color }) => (
@@ -43,7 +45,7 @@ function MainNavigator() {
         />
         <Tab.Screen
           name="Profile"
-          component={ProfileScreen} 
+          component={ProfileNavigator} 
           options={{
             tabBarLabel: 'Profile',
             tabBarIcon: ({ color }) => (
