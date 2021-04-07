@@ -40,9 +40,6 @@ function Settings({ navigation, route }) {
 
 
 
-
-
-
 const style = StyleSheet.create({
 
 
@@ -53,8 +50,8 @@ const style = StyleSheet.create({
         marginHorizontal: 10,
         paddingVertical: 10,
         backgroundColor: '#fff',
-        marginTop: 30,
-        borderRadius: 50,
+        marginTop: 15,
+        borderRadius: 30,
         marginBottom: 30,
         flexDirection : 'row'
     },
