@@ -30,13 +30,15 @@ function DishDetails({ navigation, route }) {
                         </Text>
 
                         <Text style={style.details}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Allergènes :{'\n'}</Text>
-                            NC
-                        </Text>
-
-                        <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Indications :{'\n'}</Text>
-                            Non végétarien - Avec Gluten
+                            <Text>Vegan : NC{'\n'}
+                                Végétarien : NC{'\n'}
+                                Gluten : NC{'\n'}
+                                Arachides : NC{'\n'}
+                                Lait : NC{'\n'}
+                                Fruits de mer : NC{'\n'}
+                            </Text>
+
                         </Text>
 
                         <Text style={style.details}>

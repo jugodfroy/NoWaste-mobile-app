@@ -6,7 +6,7 @@ import Dish from '../DishesTab/Dish'
 import DishDetails from '../DishesTab/DishDetails'
 
 const {width,height} = Dimensions.get("window");
-
+const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 function Map({ navigation, route }) {
 
     return (
@@ -26,20 +26,23 @@ function Map({ navigation, route }) {
                     pinColor={"#E67E22"} // any color
                     title={"ISEP Paris"}
                     description={"100 mètres de votre position"} />
+                    
             </MapView>
             <Animated.ScrollView
                 horizontal
                 scrollEventThrottle={1} //sur IOS , gere la fluidité du scroll (+fluide => +gourmand en ressources)
                 showsHorizontalScrollIndicator={false}
                 style={style.scrollView}
-                snapToInterval={width +50}
+                snapToInterval={width +5}
                 snapToAlignment='center'
+                
             >
                 
                 <Dish />
                 <Dish />
                 <Dish />
-                <Dish />
+                
+
             </Animated.ScrollView>
         </View>
 
@@ -54,7 +57,7 @@ const style = StyleSheet.create({
         bottom: 0,  //equivaut aux coordonnées de l'emplacement du component sur l'écran
         left: 0,
         right: 0,
-        paddingBottom: 10,
+        paddingVertical: 10,
 
 
     },

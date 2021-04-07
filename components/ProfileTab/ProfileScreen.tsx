@@ -49,7 +49,7 @@ function ProfileScreen({ navigation }) {
                             <Text style={style.text_menu}>Mon historique</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Settings', { screenName: "Paramètres de l'applicaiton" })}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Settings', { screenName: "Paramètres de l'application" })}>
                         <View style={style.menu_button}>
                             <Ionicons name="settings-outline" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Paramètres de l'application </Text>

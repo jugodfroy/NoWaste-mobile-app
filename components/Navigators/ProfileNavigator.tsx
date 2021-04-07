@@ -9,6 +9,7 @@ import EditProfile from '../ProfileTab/EditProfile'
 import AppInfo  from '../ProfileTab/AppInfo'
 import StackHeader from '../Common/StackHeader'
 import ProfileScreen from '../ProfileTab/ProfileScreen'
+import Settings from '../ProfileTab/Settings'
 
 
 
@@ -22,7 +23,7 @@ function ProfileNavigator() {
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
         <Stack.Screen name="History" component={Todev} />
-        <Stack.Screen name="Settings" component={Todev} />
+        <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="AppInfo" component={AppInfo} />
         <Stack.Screen name="Disconnect" component={Todev} />
         <Stack.Screen name="EditProfile" component={EditProfile} />

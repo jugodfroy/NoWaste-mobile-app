@@ -31,14 +31,15 @@ const style=StyleSheet.create({
         borderRadius : 30,
         backgroundColor : '#FFF',
         borderColor : '#ecf0f1',    //gris
-        marginHorizontal : 10,
+        //marginHorizontal : 10,
         paddingTop : 10,
         paddingBottom : 10,
+        
     },
     
     img:{
         height : 150,
-        width : 320,
+        width : 330,
         alignSelf :'center',
         borderRadius : 30,
     },
@@ -47,6 +48,7 @@ const style=StyleSheet.create({
         flexDirection:'row',
         justifyContent : 'space-between',
         paddingHorizontal : 10,
+
         
         
     },
@@ -64,7 +66,7 @@ const style=StyleSheet.create({
 
 
     details:{
-        paddingHorizontal : 10,
+        marginHorizontal : 8,
     }
 
 
