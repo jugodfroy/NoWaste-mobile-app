@@ -16,6 +16,7 @@ function DishesNavigators() {
         <Stack.Screen name="DishDetails" component={DishDetails} />
         <Stack.Screen name="AddDish" component={AddDish} />
 
+
       </Stack.Navigator>
     </NavigationContainer>
   );

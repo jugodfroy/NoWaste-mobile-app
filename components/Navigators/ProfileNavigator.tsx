@@ -10,6 +10,8 @@ import AppInfo  from '../ProfileTab/AppInfo'
 import StackHeader from '../Common/StackHeader'
 import ProfileScreen from '../ProfileTab/ProfileScreen'
 import Settings from '../ProfileTab/Settings'
+import MyDishes from  '../ProfileTab/MyDishes'
+import DishOptions from  '../ProfileTab/MyDishOptions'
 
 
 
@@ -22,7 +24,8 @@ function ProfileNavigator() {
       <Stack.Navigator initialRouteName="ProfileScreen" headerMode='none'  >
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
-        <Stack.Screen name="History" component={Todev} />
+        <Stack.Screen name="MyDishes" component={MyDishes} />
+        <Stack.Screen name="DishDetails" component={DishOptions} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="AppInfo" component={AppInfo} />
         <Stack.Screen name="Disconnect" component={Todev} />

@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { View, Text, TouchableOpacity, ScrollView, Image , StyleSheet} from 'react-native';
-import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Feather, Entypo } from '@expo/vector-icons';
 
 
 
@@ -43,10 +43,10 @@ function ProfileScreen({ navigation }) {
                             <Text style={style.text_menu}>Mes informations</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('History', { screenName: 'Historique' })}>
+                    <TouchableOpacity onPress={() => navigation.navigate('MyDishes', { screenName: 'Gérer mes plats' })}>
                         <View style={style.menu_button}>
-                            <MaterialCommunityIcons name="history" color={"#E67E22"} size={26} />
-                            <Text style={style.text_menu}>Mon historique</Text>
+                            <MaterialCommunityIcons name="food-fork-drink" color={"#E67E22"} size={26} />
+                            <Text style={style.text_menu}>Gérer mes plats</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Settings', { screenName: "Paramètres de l'application" })}>

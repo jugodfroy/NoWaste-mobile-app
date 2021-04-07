@@ -54,7 +54,7 @@ function DishDetails({ navigation, route }) {
 
                         <TouchableOpacity style={style.button} onPress={() => 
                         Alert.alert(
-                            "Confirmer la réservation ?",
+                            "Confirmer la suppression ?",
                             "",
                             [
                               {
@@ -63,12 +63,12 @@ function DishDetails({ navigation, route }) {
                                 style: "cancel"
                               },
                               { text: "Oui", onPress: () => Alert.alert(
-                                    "Réservation effectuée !",
-                                    "Le vendeur sera notifié de votre demande et pourra prendre contact avec vous s'il souhaite donner suite à votre réservation.") }
+                                    "Plat supprimé !",
+                                    "") }
                             ]
                           )
                         }>
-                            <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Réserver ce plat</Text>
+                            <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Retirer ce plat</Text>
                         </TouchableOpacity>
                        
 
