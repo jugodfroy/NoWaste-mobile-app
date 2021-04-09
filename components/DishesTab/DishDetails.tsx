@@ -49,33 +49,48 @@ function DishDetails({ navigation, route }) {
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Adresse :{'\n'}</Text>
                             100 avenue de la République, Paris 75014{'\n'}
-                        <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
+                            <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
                         </Text>
 
-                        <TouchableOpacity style={style.button} onPress={() => 
-                        Alert.alert(
-                            "Confirmer la réservation ?",
-                            "",
-                            [
-                              {
-                                text: "Annuler",
-                                onPress: () => console.log("Cancel Pressed"),
-                                style: "cancel"
-                              },
-                              { text: "Oui", onPress: () => Alert.alert(
-                                    "Réservation effectuée !",
-                                    "Le vendeur sera notifié de votre demande et pourra prendre contact avec vous s'il souhaite donner suite à votre réservation.") }
-                            ]
-                          )
+                        <TouchableOpacity style={style.button} onPress={() =>
+                            Alert.alert(
+                                "Confirmer la demande du plat ?",
+                                "",
+                                [
+                                    {
+                                        text: "Annuler",
+                                        onPress: () => navigation.navigate('ListDishes'),
+                                        style: "cancel"
+                                    },
+                                    {
+                                        text: "Oui",
+                                        onPress: () => Alert.alert(
+                                            "Demande envoyée !",
+                                            "Le vendeur sera notifié de votre demande et pourra prendre contact avec vous s'il souhaite y donner suite.",
+                                            [
+                                                {
+                                                    text: "OK",
+                                                    onPress: () => navigation.navigate('ListDishes'),
+
+                                                },
+
+                                            ]
+                                        ),
+
+                                    },
+
+
+                                ]
+                            )
                         }>
                             <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Réserver ce plat</Text>
                         </TouchableOpacity>
-                       
+
 
                     </View>
                 </View>
             </ScrollView>
-        </View>
+        </View >
 
 
     )
@@ -131,16 +146,16 @@ const style = StyleSheet.create({
         fontSize: 15
     },
 
-    button:{
+    button: {
         width: 200,
         height: 55,
         justifyContent: 'center',
-        alignSelf:'center',
+        alignSelf: 'center',
         backgroundColor: '#2980B9',    //soft orange
         borderWidth: 2,
         borderColor: '#2980B9',
         borderRadius: 50,
-        marginTop : 30,
+        marginTop: 30,
 
     },
 

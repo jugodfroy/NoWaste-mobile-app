@@ -49,29 +49,31 @@ function DishDetails({ navigation, route }) {
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Adresse :{'\n'}</Text>
                             100 avenue de la République, Paris 75014{'\n'}
-                        <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
+                            <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
                         </Text>
 
-                        <TouchableOpacity style={style.button} onPress={() => 
-                        Alert.alert(
-                            "Confirmer la suppression ?",
-                            "",
-                            [
-                              {
-                                text: "Annuler",
-                                onPress: () => console.log("Cancel Pressed"),
-                                style: "cancel"
-                              },
-                              { text: "Oui", onPress: () => Alert.alert(
-                                    "Plat supprimé !",
-                                    "") }
-                            ]
-                          )
+                        <TouchableOpacity style={style.button} onPress={() =>
+                            Alert.alert(
+                                "Confirmer la suppression ?",
+                                "",
+                                [
+                                    {
+                                        text: "Annuler",
+                                        onPress: () => console.log("Cancel Pressed"),
+                                        style: "cancel"
+                                    },
+                                    {
+                                        text: "Oui", onPress: () => Alert.alert(
+                                            "Plat supprimé !",
+                                            "")
+                                    }
+                                ]
+                            )
                         }>
                             <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Retirer ce plat</Text>
                         </TouchableOpacity>
-                       
 
+                        <Demand />  
                     </View>
                 </View>
             </ScrollView>
@@ -81,7 +83,89 @@ function DishDetails({ navigation, route }) {
     )
 }
 
+function Demand() {
+    const test = 1
+    //s'il y a une demande en attente
+    if (test == 1) {   //condition a changer  - but: vérifier qu'il y a une demande en attente
+        return (
+            <TouchableOpacity style={style.button} onPress={() =>
+                Alert.alert(
+                    "Demande de Stéphane Lepape",
+                    "Pour donner suite à sa demande, contactez directement le demandeur",
 
+                    [
+                        {
+                            text: "Annuler",
+                            onPress: () => console.log("Cancel Pressed"),
+                            style: "cancel"
+                        },
+                        {
+                            text: "Refuser la demande", onPress: () => Alert.alert(
+                                "Demande refusée",
+                                "",
+                                [
+                                    {
+                                        text: "OK",
+                                        onPress: () => console.log("Cancel Pressed"),
+
+                                    },
+                                ]
+                            )
+                        },
+                        {
+                            text: "Afficher ses coordonnées",
+                            onPress: () => Alert.alert(
+                                "Stéphane Lepape",
+                                "Numéro de téléphone : 0651346855\nMail : stephane.lepape@isep.fr",
+                                [
+                                    {
+                                        text: "Retour",
+                                        onPress: () => console.log("Cancel Pressed"),
+
+                                    },
+                                    {
+                                        text: "Marqué comme vendu à Stéphane",
+                                        onPress: () => Alert.alert(
+                                            "Confirmez-vous avoir vendu votre plat à Stéphane ?",
+                                            "Votre annonce sera suprimée et le transfère de token sera effectué.",
+                                            [
+                                                {
+                                                    text: "Annuler",
+                                                    onPress: () => console.log("Cancel Pressed"),
+
+                                                },
+                                                {
+                                                    text: "Confirmer",
+                                                    onPress: () => Alert.alert(
+                                                        "Plat vendu à Stéphane",
+                                                        "Tranfère de token effectué",
+                                                        [
+                                                            {
+                                                                text: "Retour",
+                                                                onPress: () => console.log("retour Pressed"),
+
+                                                            },
+
+                                                        ]
+                                                    ),
+
+                                                },
+                                            ]
+                                        )
+
+                                    },
+                                ]
+                            )
+                        },
+                    ]
+                )
+            }>
+                <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>1 demande en attente</Text>
+            </TouchableOpacity>
+        )
+    }
+    else{return(null)}
+}
 
 const style = StyleSheet.create({
 
@@ -131,16 +215,16 @@ const style = StyleSheet.create({
         fontSize: 15
     },
 
-    button:{
+    button: {
         width: 200,
         height: 55,
         justifyContent: 'center',
-        alignSelf:'center',
+        alignSelf: 'center',
         backgroundColor: '#2980B9',    //soft orange
         borderWidth: 2,
         borderColor: '#2980B9',
         borderRadius: 50,
-        marginTop : 30,
+        marginTop: 30,
 
     },
 

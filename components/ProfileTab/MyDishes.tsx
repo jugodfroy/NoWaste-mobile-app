@@ -13,7 +13,15 @@ function MyDishes({ navigation, route }) {
                 <StackHeader routeInfo = {data}/>
 
                 <View style={style.container}>
-                    <Text style={style.reservation}>1 demande en attente pour le plat suivant :</Text>
+                    <Demand/>
+                    <Dish/>
+                </View>
+                <View style={style.container}>
+                    
+                    <Dish/>
+                </View>
+                <View style={style.container}>
+                    <Demand/>
                     <Dish/>
                 </View>
             </View>
@@ -22,8 +30,25 @@ function MyDishes({ navigation, route }) {
     );
 }
 
+function Demand(){
+    if (1==1){  //si il y a une demande en attente,
+        return(
+
+            <Text style={style.reservation}>DEMANDE EN ATTENTE</Text>
+        )
+    } 
+    else{return(null)}
+}
+
 
 const style = StyleSheet.create({
+
+    container:{
+        backgroundColor : 'white',
+        borderRadius : 30,
+        marginTop : 20
+    },
+
 
     text:{
         fontSize :20,
@@ -33,9 +58,13 @@ const style = StyleSheet.create({
     },
 
     reservation:{
-        fontSize : 19,
+        fontSize : 18,
         paddingHorizontal : 6,
+        paddingLeft : 20,
+        alignSelf : 'center'
     },
+
+
 
 })
 

@@ -45,6 +45,10 @@ function Map({ navigation, route }) {
                 image: "../img/sushi.jpg",
             },
 
+
+            
+    
+
         ],
         region: {
             latitude: 48.8452974,
