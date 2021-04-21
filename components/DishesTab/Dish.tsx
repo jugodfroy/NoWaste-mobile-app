@@ -1,20 +1,20 @@
 import React from 'react'
 import  {View , Image, Text, StyleSheet, TouchableOpacity, Alert  } from 'react-native' 
 import { useNavigation  } from '@react-navigation/native';
+import * as data from '../../database/dishes.json'
 
-
-function Dish({ route }) {
+function Dish(props) {
     const navigation = useNavigation(); 
 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('DishDetails', {screenName:'Plateau de sushis'})}>
+        <TouchableOpacity onPress={() => navigation.navigate('DishDetails', ({screenName:props.dish.name, dish:props.dish}))}>
             <View style={style.container}>
-                <Image style={style.img} source={require('../img/sushi.jpg')} />
+                <Image style={style.img} source={{uri: props.dish.picture}}/>
                 <View style={style.title_box}>
-                    <Text style={[style.title, { fontWeight: 'bold' }]}>Plateau de sushis</Text>
-                    <Text style={style.price}>1 Token </Text>
+                    <Text style={[style.title, { fontWeight: 'bold' }]}>{props.dish.name}</Text>
+                    <Text style={style.price}>{props.dish.price} Token </Text>
                 </View>
-                <Text style={style.details}>Plateau de 7 sushis et 6 makis au saumon faits maison</Text>
+                <Text style={style.details}>{props.dish.name}</Text>
                 <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
             </View>
         </TouchableOpacity>

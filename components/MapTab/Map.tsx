@@ -13,59 +13,17 @@ const CARD_WIDTH = width * 0.8;
 
 function Map({ navigation, route }) {
 
+    const dishData = require ('../../database/dishes.json')
 
 
-    const data = {
-        markers: [
-            {
-                coordinate: {
-                    latitude: 48.84540488738773,
-                    longitude: 2.328035420148238,
-                },
-                title: "PLAT 1",
-                description: "100 mètres de votre position",
-                image: "../img/sushi.jpg",
-            },
-            {
-                coordinate: {
-                    latitude: 48.8434243578322,
-                    longitude: 2.3337495979716305,
-                },
-                title: "PLAT 2",
-                description: "100 mètres de votre position",
-                image: "../img/sushi.jpg",
-            },
-            {
-                coordinate: {
-                    latitude: 48.84838082997849,
-                    longitude: 2.331563060658821,
-                },
-                title: "PLAT 3",
-                description: "100 mètres de votre position",
-                image: "../img/sushi.jpg",
-            },
-
-
-            
-    
-
-        ],
-        region: {
-            latitude: 48.8452974,
-            longitude: 2.3280403,
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01
-        },
-    };
-    const [state, setState] = React.useState(data);
     let mapIndex = 0;
     let mapAnimation = new Animated.Value(0);
 
     useEffect(() => {
         mapAnimation.addListener(({ value }) => {
             let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
-            if (index >= state.markers.length) {
-                index = state.markers.length - 1;
+            if (index >= dishData.length) {
+                index = dishData.length - 1;
             }
             if (index <= 0) {
                 index = 0;
@@ -76,12 +34,12 @@ function Map({ navigation, route }) {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index;
-                    const { coordinate } = state.markers[index];
+                    const { coordinate } = dishData[index];
                     _map.current.animateToRegion(
                         {
                             ...coordinate,
-                            latitudeDelta: state.region.latitudeDelta,
-                            longitudeDelta: state.region.longitudeDelta,
+                            latitudeDelta: 0.01,
+                            longitudeDelta: 0.01,
                         },
                         350
                     );
@@ -90,7 +48,7 @@ function Map({ navigation, route }) {
         });
     });
 
-    const interpolations = state.markers.map((marker, index) => {
+    const interpolations = dishData.map((marker, index) => {
         const inputRange = [
             (index - 1) * CARD_WIDTH,
             index * CARD_WIDTH,
@@ -127,11 +85,16 @@ function Map({ navigation, route }) {
                 ref={_map}
                 style={{ flex: 1 }}
                 provider={PROVIDER_GOOGLE}  // a tester sur iphone
-                initialRegion={state.region}
+                initialRegion={{
+                    latitude: dishData[0].coordinate.latitude,
+                    longitude: dishData[0].coordinate.longitude,
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01,
+                  }}
                 showsUserLocation={true}
             >
                 {
-                    state.markers.map((marker, index) => {
+                    dishData.map((marker, index) => {
                         const scaleStyle = {
                             transform: [
                                 {
@@ -178,8 +141,8 @@ function Map({ navigation, route }) {
 
             >
                 {
-                    state.markers.map((marker, index) => (
-                        <Dish key={index} />
+                    dishData.map((dish, index) => (
+                        <Dish dish={dish} />
 
                     ))
                 }

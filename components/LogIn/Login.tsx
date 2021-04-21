@@ -21,6 +21,16 @@ function Login({ navigation }) {
                         <Text style={{ alignSelf: 'center' }}> Mot de passe</Text>
                     </View>
                     <TextInput style={style.input_id} placeholder='Mot de passe' secureTextEntry={true} />
+                    <TouchableOpacity  onPress={() =>
+                        Alert.alert(
+                            "Récupération du mot de passe",
+                            "Veuillez contacter l'équipe NoWaste à l'adresse mail suivante:\njgodfroy@juniorisep.com",
+                        )
+                        }>
+                        <Text style={style.forget}>
+                            Mot de passe oublié ?
+                        </Text>
+                    </TouchableOpacity>
 
 
 
@@ -82,12 +92,19 @@ const style = StyleSheet.create({  //StyleSheet : optimise les perfs de l'appli 
         backgroundColor: 'white'
     },
 
+    forget:{
+        textAlign : 'right',
+        paddingRight : 15,
+        paddingTop:4,
+        textDecorationLine: 'underline'
+    },
+
 
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginTop:70,
+        marginTop: 70,
         width: "100%",
         paddingBottom: 60,
         //backgroundColor : 'black', //pour comprendre les positionnements des views

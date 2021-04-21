@@ -7,6 +7,10 @@ import React from 'react'
 
 
 function ListDetails({ navigation, route }) {
+
+    const data = require ('../../database/dishes.json')
+    const [state] = React.useState(data);
+
     return (
         <View style={{ paddingTop: 20 }}>
             <ScrollView>
@@ -20,11 +24,11 @@ function ListDetails({ navigation, route }) {
                     </View>
                 </TouchableOpacity>
                 <View>
-                    <Dish />
-                    <Dish />
-                    <Dish />
-                    <Dish />
-                    <Dish />
+                    {state.map( (item) => (
+                        
+                        <Dish dish={item}/>
+                        
+                    ))}
 
                 </View>
             </ScrollView>

@@ -2,36 +2,37 @@
 import * as React from 'react';
 
 import { View, Text, TouchableOpacity, ScrollView, Image , StyleSheet} from 'react-native';
-import { Ionicons, MaterialCommunityIcons, Feather, Entypo } from '@expo/vector-icons';
-
+import { Ionicons, MaterialCommunityIcons, Feather, } from '@expo/vector-icons';
 
 
 function ProfileScreen({ navigation }) {
+    const data = require ('../../database/profile.json')
+    const [state] = React.useState(data);
     return (
         <ScrollView>
             <View>
 
                 <View style={style.main_profile_container}>
                     <View>
-                        <Image source={require("../img/pp.jpg")} style={style.pp} />
+                        <Image source={require("../img/pp.jpg")} style={style.pp}/> 
                     </View>
 
                     <View style={style.name}>
-                        <Text style={style.text_name}>Julien</Text>
-                        <Text style={[style.text_name, { fontWeight: 'bold' }]}>GODFROY</Text>
+                        <Text style={style.text_name}>{state.name}</Text>
+                        <Text style={[style.text_name, { fontWeight: 'bold' }]}>{state.surname}</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
                         <View style={style.stat_bloc}>
-                            <Text style={style.stat_figures}>10</Text>
+                            <Text style={style.stat_figures}>{state.tokens}</Text>
                             <Text style={style.stat_text}>Tokens</Text>
                         </View>
                         <View style={style.stat_bloc_center}>
-                            <Text style={style.stat_figures}>4</Text>
+                            <Text style={style.stat_figures}>{state.sale}</Text>
                             <Text style={style.stat_text}>Ventes</Text>
                         </View>
                         <View style={style.stat_bloc}>
-                            <Text style={style.stat_figures}>5</Text>
+                            <Text style={style.stat_figures}>{state.purchase}</Text>
                             <Text style={style.stat_text}>Achats</Text>
                         </View>
                     </View>

@@ -74,11 +74,11 @@ function AddDish({ navigation, route }) {
                                 { label: 'NC', value: 'NC' },
                             ]}
                         />
-                        <Text style={style.text_details}>Fruit de mère :</Text>
+                        <Text style={style.text_details}>Fruit de mer :</Text>
                         <RNPickerSelect
                             style={PickerStyle}
                             useNativeAndroidPickerStyle ={false}
-                            placeholder={{ label: "Fruits de mère", value: null }}
+                            placeholder={{ label: "Fruits de mer", value: null }}
                             onValueChange={(value) => console.log(value)}
                             items={[
                                 { label: 'Oui', value: 'Oui' },

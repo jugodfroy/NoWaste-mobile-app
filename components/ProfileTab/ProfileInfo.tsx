@@ -8,69 +8,71 @@ import StackHeader from '../Common/StackHeader'
 
 
 function ProfileInfo({ navigation, route }) {
-  const data = route.params.screenName
+  const routedata = route.params.screenName
+  const data = require ('../../database/profile.json')
+  const [state] = React.useState(data);
 
   return (
     <View>
-      <StackHeader routeInfo={data} />
+      <StackHeader routeInfo={routedata} />
 
       <View style={style.menu_container}>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Nom', placeholder: 'Godfroy' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Nom', placeholder: state.surname })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Nom :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>Godfroy</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.surname}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Prénom', placeholder: 'Julien' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Prénom', placeholder: state.name })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Prénom :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>Julien</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.name}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Adresse mail', placeholder: 'julien.godfroy@isep.fr' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Adresse mail', placeholder: state.mail })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Adresse mail :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>julien.godfroy@isep.fr</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.mail}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Numéro de téléphone', placeholder: '0666817985' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Numéro de téléphone', placeholder: state.phone })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Numéro de téléphone :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>0666817985</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.phone}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Ville', placeholder: 'Paris' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Ville', placeholder: state.city })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Ville :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>Paris</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.city}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Adresse postale', placeholder: '64 rue de Vanves' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile', { screenName: 'Adresse postale', placeholder: state.address })}>
           <View style={style.menu_button}>
             <Text style={style.text_menu}>Adresse postale :</Text>
             <View style={{ flexDirection: 'row' }}>
 
-              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>64 rue de Vanves</Text>
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.address}</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>

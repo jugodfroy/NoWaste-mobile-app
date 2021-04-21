@@ -1,0 +1,14 @@
+
+    {
+        "name": "Julien",
+        "surname": "Godfroy",
+        "sale": 4,
+        "purchase": 5,
+        "tokens": 10,
+        "mail": "julien.godfroy@isep.fr",
+        "phone": "0666817985",
+        "city": "Paris",
+        "address": "11 allée du cimetière",
+        "picture": "pathtoadd"
+        
+    }
