@@ -61,8 +61,8 @@ function Map({ navigation, route }) {
         });
     });
 
-    const interpolations = dishData.map((marker, index) => {
-        
+    const interpolations = dishData.map((marker, index) => {    //gere la taille du marker
+        index= index-1
         if (marker.seller !='Julien GODFROY'){
             const inputRange = [
                 (index - 1) * CARD_WIDTH,
@@ -72,7 +72,7 @@ function Map({ navigation, route }) {
             console.log(inputRange)
             const scale = mapAnimation.interpolate({
                 inputRange,
-                outputRange: [1, 1, 1],
+                outputRange: [1, 1.6, 1],
                 extrapolate: "clamp"
             });
             return { scale };
