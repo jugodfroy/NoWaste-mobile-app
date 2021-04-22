@@ -8,14 +8,14 @@ import React from 'react'
 
 function ListDetails({ navigation, route }) {
 
-    const data = require ('../../database/dishes.json')
+    const data = require('../../database/dishes.json')
     const [state] = React.useState(data);
 
     return (
         <View style={{ paddingTop: 20 }}>
             <ScrollView>
-                <TouchableOpacity style={style.AddDishbtn} onPress={() => navigation.navigate('AddDish', {screenName:'Proposer un plat'})}>
-                    <View style={{flexDirection : 'row', alignSelf:'center'}}>
+                <TouchableOpacity style={style.AddDishbtn} onPress={() => navigation.navigate('AddDish', { screenName: 'Proposer un plat' })}>
+                    <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
 
                         <AntDesign name="pluscircleo" color={"#E67E22"} size={26} />
                         <Text style={style.text}>
@@ -24,11 +24,21 @@ function ListDetails({ navigation, route }) {
                     </View>
                 </TouchableOpacity>
                 <View>
-                    {state.map( (item) => (
-                        
-                        <Dish dish={item}/>
-                        
-                    ))}
+                    {state.map((item) => {
+                        if (item.seller != 'Julien GODFROY') {
+                            return (
+                                <View style={{ paddingTop: 3 }} >
+                                    <Dish key={item.dishID} dish={item} />
+                                </View>
+
+                            )
+                        }
+                        else {
+                            return (null)
+                        }
+
+
+                    })}
 
                 </View>
             </ScrollView>
@@ -42,16 +52,16 @@ function ListDetails({ navigation, route }) {
 const style = StyleSheet.create({
 
     text: {
-        color: '#e67e22', 
-        textAlign: 'center', 
-        fontSize: 18, 
-        alignSelf:'center',
-        paddingLeft : 7
+        color: '#e67e22',
+        textAlign: 'center',
+        fontSize: 18,
+        alignSelf: 'center',
+        paddingLeft: 7
     },
 
-    AddDishbtn:{
-        marginHorizontal : 10,
-        marginVertical : 10,
+    AddDishbtn: {
+        marginHorizontal: 10,
+        marginVertical: 10,
         height: 55,
         justifyContent: 'center',
         backgroundColor: '#ecf0f1',

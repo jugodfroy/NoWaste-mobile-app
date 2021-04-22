@@ -1,6 +1,6 @@
 [
     {
-        "dishID": 1,
+        "dishID": 0,
         "name": "Plateau de sushis",
         "description": "Plateau de 7 sushis et 6 makis au saumon faits maison",
         "expire": "2 jours",
@@ -18,10 +18,11 @@
             "longitude": 2.331563060658821
         },
         "picture": "https://img.over-blog-kiwi.com/0/98/03/83/20151027/ob_a82299_140135-sushi-rolls-assorted-fish-rice.jpg",
-        "seller" : "Jack Albert"
+        "seller" : "Julien GODFROY",
+        "request" : false
     },
     {
-        "dishID": 2,
+        "dishID": 1,
         "name": "Couscous",
         "description": "Couscous fait maison pour 2 personnes",
         "expire": "2 jours",
@@ -39,10 +40,11 @@
             "longitude": 2.3337495979716305
         },
         "picture":"https://assets.afcdn.com/recipe/20180713/81009_w1024h576c1cx1617cy2156.jpg",
-        "seller" : "Stéphane Legrand"
+        "seller" : "Stéphane LEGRAND",
+        "request" : false
     },
     {
-        "dishID": 3,
+        "dishID": 2,
         "name": "Frites maisons",
         "description": "1kg de frites faites maison",
         "expire": "Jamais",
@@ -60,6 +62,54 @@
             "longitude": 2.328035420148238
         },
         "picture": "https://img-3.journaldesfemmes.fr/3Ui2qj3J_628WOMf7-fLhfW_ohs=/1240x/smart/d72f4f8d3c6a45699a979e56df4b2d53/ccmcms-jdf/10820734.jpg",
-        "seller" : "Alexande Lepetit"
+        "seller" : "zeze",
+        "request" : true
+    },
+
+    {
+        "dishID": 3,
+        "name": "Tiramisu ",
+        "description": "Reste de tiramisu fait maison. Fait avec passion et amour",
+        "expire": "2 jours",
+        "price": "1",
+        "vegan": "Non",
+        "vege": "Oui",
+        "gluten": "N/C",
+        "peanuts": "Non",
+        "milk": "Oui",
+        "seafood": "Non",
+        "address" : "100 rue de Vanves",
+        "city" : "Paris",
+        "coordinate": {
+            "latitude": 48.83981189461032,
+            "longitude": 2.3221388521118325
+        },
+        "picture":"https://p1.storage.canalblog.com/18/50/552005/43736272_p.jpg",
+        "seller" : "azeaze",
+        "request" : false
+    },
+    
+
+    {
+        "dishID": 4,
+        "name": "Poulet rôti ",
+        "description": "Poulet rôti de 1kg acheté chez le boucher récemment. Je le vends suite à un diner qui s'est annulé. Si vous êtes gentils, je peux vous fournir des pommes de terre en plus :)",
+        "expire": "2 jours",
+        "price": "1",
+        "vegan": "Non",
+        "vege": "Non",
+        "gluten": "N/C",
+        "peanuts": "Non",
+        "milk": "Non",
+        "seafood": "Non",
+        "address" : "192 rue d'Einstein",
+        "city" : "Paris",
+        "coordinate": {
+            "latitude": 48.83906056006323,
+            "longitude": 2.33917624377443
+        },
+        "picture":"https://fyooyzbm.filerobot.com/v7/https://static01.nicematin.com/media/npo/mobile_1440w/2018/11/istock-841452394.jpg",
+        "seller" : "zeazeaz",
+        "request" : false
     }
 ]

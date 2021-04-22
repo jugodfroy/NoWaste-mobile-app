@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { View, ScrollView, Animated, StyleSheet, Dimensions, Platform } from 'react-native'
+import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { MaterialCommunityIcons, AntDesign, Feather } from '@expo/vector-icons';
 import Dish from '../DishesTab/Dish'
@@ -13,13 +13,25 @@ const CARD_WIDTH = width * 0.8;
 
 function Map({ navigation, route }) {
 
-    const dishData = require ('../../database/dishes.json')
+    const dishData = require('../../database/dishes.json')
+    var indexes = []    //liste les index des plat qui ne sont pas publié par l'utilisateur
+    dishData.map((marker) => {
+        
+        if (marker.seller != 'Julien GODFROY') {
+            indexes.push(marker.dishID)
+        }
+    })
+    console.log(indexes)
+
+
+
+
 
 
     let mapIndex = 0;
     let mapAnimation = new Animated.Value(0);
 
-    useEffect(() => {
+    useEffect(() => {   //centre le marker correspondant a l'item du scrollview
         mapAnimation.addListener(({ value }) => {
             let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
             if (index >= dishData.length) {
@@ -34,7 +46,8 @@ function Map({ navigation, route }) {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index;
-                    const { coordinate } = dishData[index];
+                    console.log("touché?"+index)
+                    const { coordinate } = dishData[indexes[index]];
                     _map.current.animateToRegion(
                         {
                             ...coordinate,
@@ -49,23 +62,27 @@ function Map({ navigation, route }) {
     });
 
     const interpolations = dishData.map((marker, index) => {
-        const inputRange = [
-            (index - 1) * CARD_WIDTH,
-            index * CARD_WIDTH,
-            ((index + 1) * CARD_WIDTH),
-        ];
-
-        const scale = mapAnimation.interpolate({
-            inputRange,
-            outputRange: [1, 1.6, 1],
-            extrapolate: "clamp"
-        });
-
-        return { scale };
+        
+        if (marker.seller !='Julien GODFROY'){
+            const inputRange = [
+                (index - 1) * CARD_WIDTH,
+                index * CARD_WIDTH,
+                ((index + 1) * CARD_WIDTH),
+            ];
+            console.log(inputRange)
+            const scale = mapAnimation.interpolate({
+                inputRange,
+                outputRange: [1, 1, 1],
+                extrapolate: "clamp"
+            });
+            return { scale };
+        }
     });
 
-    const onMarkerPress = (mapEventData) => {
-        const markerID = mapEventData._targetInst.return.key;
+    const onMarkerPress = (mapEventData) => {   //amination du scrollview quand on clique sur un marker
+        const markerID = mapEventData._targetInst.return.key -1;
+        console.log('markerID : '+markerID)
+
 
         let x = (markerID * CARD_WIDTH) + (markerID * 80);//80 en tatonant => valeur a changer si décalage après plusieurs plats
         if (Platform.OS === 'ios') {
@@ -86,15 +103,17 @@ function Map({ navigation, route }) {
                 style={{ flex: 1 }}
                 provider={PROVIDER_GOOGLE}  // a tester sur iphone
                 initialRegion={{
-                    latitude: dishData[0].coordinate.latitude,
-                    longitude: dishData[0].coordinate.longitude,
+                    latitude: dishData[indexes[0]].coordinate.latitude,
+                    longitude: dishData[indexes[0]].coordinate.longitude,
                     latitudeDelta: 0.01,
                     longitudeDelta: 0.01,
-                  }}
+                }}
                 showsUserLocation={true}
             >
                 {
                     dishData.map((marker, index) => {
+                        
+                        if (marker.seller != 'Julien GODFROY') {
                         const scaleStyle = {
                             transform: [
                                 {
@@ -102,17 +121,27 @@ function Map({ navigation, route }) {
                                 },
                             ],
                         };
-                        return (
-                            <Marker key={index} coordinate={marker.coordinate} onPress={(e) => onMarkerPress(e)}>
-                                <Animated.View style={[style.markerWrap]}>
-                                    <Animated.Image
-                                        source={require('../img/map_marker.png')}
-                                        style={[style.marker, scaleStyle]}
-                                        resizeMode="cover"
-                                    />
-                                </Animated.View>
-                            </Marker>
-                        );
+                            console.log(marker.name + "by autre")
+                            return (
+                                <Marker key={index} coordinate={marker.coordinate} onPress={(e) => onMarkerPress(e)}>
+                                    <Animated.View style={[style.markerWrap]}>
+                                        <Animated.Image
+                                            source={require('../img/map_marker.png')}
+                                            style={[style.marker, scaleStyle]}
+                                            resizeMode="cover"
+                                        />
+                                    </Animated.View>
+                                </Marker>
+                            );
+
+                        }
+                        else{
+                            console.log(marker.name +"by juju")
+                            return(
+                                null
+                            )
+                        }
+                        
                     })
                 }
 
@@ -141,13 +170,16 @@ function Map({ navigation, route }) {
 
             >
                 {
-                    dishData.map((dish, index) => (
-                        <Dish dish={dish} />
+                    dishData.map((dish) => {
+                        if (dish.seller != 'Julien GODFROY') {
+                            return (
+                                <Dish key={dish.dishID} dish={dish} />
+                            )
+                        }
+                        else { return (null) }
 
-                    ))
+                    })
                 }
-
-
 
             </Animated.ScrollView>
         </View >
@@ -171,16 +203,16 @@ const style = StyleSheet.create({
     markerWrap: {
         alignItems: "center",
         justifyContent: "center",
-        width:50,
-        height:50,
-      },
+        width: 50,
+        height: 50,
+    },
     marker: {
         alignItems: "center",
         justifyContent: "center",
         width: 30,
         height: 30,
     },
-  
+
 
 
 

@@ -14,7 +14,7 @@ function Dish(props) {
                     <Text style={[style.title, { fontWeight: 'bold' }]}>{props.dish.name}</Text>
                     <Text style={style.price}>{props.dish.price} Token </Text>
                 </View>
-                <Text style={style.details}>{props.dish.name}</Text>
+                <Text style={style.details} numberOfLines={2}>{props.dish.description}</Text>
                 <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
             </View>
         </TouchableOpacity>
@@ -28,12 +28,13 @@ const style=StyleSheet.create({
 
         //marginTop : 15, //juste dev, à retirer
         borderWidth : 3,
-        borderRadius : 30,
+        borderRadius : 40,
         backgroundColor : '#FFF',
-        borderColor : '#ecf0f1',    //gris
+        borderColor : '#FFF',    //gris '#ecf0f1'
         //marginHorizontal : 10,
         paddingTop : 10,
         paddingBottom : 10,
+        maxWidth:350,
         
     },
     
@@ -71,6 +72,7 @@ const style=StyleSheet.create({
 
 
 })
+
 
 
 export default Dish

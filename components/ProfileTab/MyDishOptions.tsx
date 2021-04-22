@@ -5,50 +5,51 @@ import StackHeader from '../Common/StackHeader'
 
 
 function DishDetails({ navigation, route }) {
-    const data = route.params.screenName
+    const screenName = route.params.screenName
+    const dishData = route.params.dish
     return (
         <View>
-            <StackHeader routeInfo={data} />
+            <StackHeader routeInfo={screenName} />
             <ScrollView>
                 <View style={style.container}>
-                    <Image style={style.img} source={require('../img/sushi.jpg')} />
+                    <Image style={style.img} source={{uri: dishData.picture}} />
                     <View style={style.title_box}>
-                        <Text style={[style.title, { fontWeight: 'bold' }]}>Plateau de sushis</Text>
+                        <Text style={[style.title, { fontWeight: 'bold' }]}>{dishData.name}</Text>
                         <Text style={style.price}>1 Token </Text>
                     </View>
 
                     <View>
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Description :{'\n'}</Text>
-                            Plateau de 7 sushis et 6 makis au saumon faits maison
+                            {dishData.description}
                         </Text>
 
 
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Périme dans :{'\n'}</Text>
-                            2 jours
+                            {dishData.expire}
                         </Text>
 
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Indications :{'\n'}</Text>
-                            <Text>Vegan : NC{'\n'}
-                                Végétarien : NC{'\n'}
-                                Gluten : NC{'\n'}
-                                Arachides : NC{'\n'}
-                                Lait : NC{'\n'}
-                                Fruits de mer : NC
+                            <Text>Vegan : {dishData.vegan}{'\n'}
+                                Végétarien : {dishData.vege}{'\n'}
+                                Gluten :{dishData.name} {dishData.gluten}{'\n'}
+                                Arachides : {dishData.peanuts}{'\n'}
+                                Lait : {dishData.milk}{'\n'}
+                                Fruits de mer : {dishData.seafood}
                             </Text>
 
                         </Text>
 
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Proposé par :{'\n'}</Text>
-                            Stéphane Legrand
+                            {dishData.seller}
                         </Text>
 
                         <Text style={style.details}>
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Adresse :{'\n'}</Text>
-                            100 avenue de la République, Paris 75014{'\n'}
+                            {dishData.address}, {dishData.city}{'\n'}
                             <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
                         </Text>
 
@@ -64,8 +65,17 @@ function DishDetails({ navigation, route }) {
                                     },
                                     {
                                         text: "Oui", onPress: () => Alert.alert(
-                                            "Plat supprimé !",
-                                            "")
+                                            "Plat supprimé",
+                                            "",
+                                            [
+                                                {
+                                                    text: "OK",
+                                                    onPress: () => navigation.navigate('MyDishes'),
+
+                                                },
+
+                                            ]
+                                        ),
                                     }
                                 ]
                             )
@@ -73,7 +83,7 @@ function DishDetails({ navigation, route }) {
                             <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Retirer ce plat</Text>
                         </TouchableOpacity>
 
-                        <Demand />  
+                        <Demand dish={dishData}/>  
                     </View>
                 </View>
             </ScrollView>
@@ -83,10 +93,10 @@ function DishDetails({ navigation, route }) {
     )
 }
 
-function Demand() {
+function Demand(props) {
     const test = 1
     //s'il y a une demande en attente
-    if (test == 1) {   //condition a changer  - but: vérifier qu'il y a une demande en attente
+    if (props.dish.request == true) {   //condition a changer  - but: vérifier qu'il y a une demande en attente
         return (
             <TouchableOpacity style={style.button} onPress={() =>
                 Alert.alert(
@@ -166,6 +176,8 @@ function Demand() {
     }
     else{return(null)}
 }
+
+
 
 const style = StyleSheet.create({
 
