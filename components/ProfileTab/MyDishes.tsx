@@ -33,9 +33,9 @@ function Request(props) {
     if (props.dish.seller == "Julien GODFROY") { //changer julien godfroy avec le nom de l'utilisateur loggée
         if(props.dish.request == true){
         return (
-            <View style={style.reservation}>
+            <View key={props.dish.dishID} style={style.reservation}>
                 <Text style={style.reservation}>DEMANDE EN ATTENTE</Text>
-                <Dish key={props.dish.dishID} dish={props.dish} />
+                <Dish dish={props.dish} />
             </View>
         )}
         else { 

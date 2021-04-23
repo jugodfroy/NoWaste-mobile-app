@@ -63,7 +63,7 @@
         },
         "picture": "https://img-3.journaldesfemmes.fr/3Ui2qj3J_628WOMf7-fLhfW_ohs=/1240x/smart/d72f4f8d3c6a45699a979e56df4b2d53/ccmcms-jdf/10820734.jpg",
         "seller" : "zeze",
-        "request" : true
+        "request" : false
     },
 
     {
@@ -85,8 +85,8 @@
             "longitude": 2.3221388521118325
         },
         "picture":"https://p1.storage.canalblog.com/18/50/552005/43736272_p.jpg",
-        "seller" : "azeaze",
-        "request" : false
+        "seller" : "Julien GODFROY",
+        "request" : true
     },
     
 

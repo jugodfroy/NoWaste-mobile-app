@@ -25,10 +25,10 @@ function ListDetails({ navigation, route }) {
                 </TouchableOpacity>
                 <View>
                     {state.map((item) => {
-                        if (item.seller != 'Julien GODFROY') {
+                        if (item.seller != 'Julien GODFROY' && item.request == false) {
                             return (
-                                <View style={{ paddingTop: 3 }} >
-                                    <Dish key={item.dishID} dish={item} />
+                                <View key={item.dishID} style={{ paddingTop: 3 }} >
+                                    <Dish  dish={item} />
                                 </View>
 
                             )

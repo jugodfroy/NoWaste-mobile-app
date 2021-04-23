@@ -63,7 +63,7 @@ function Map({ navigation, route }) {
 
     const interpolations = dishData.map((marker, index) => {    //gere la taille du marker
         index= index-1
-        if (marker.seller !='Julien GODFROY'){
+        if (marker.seller !='Julien GODFROY' && marker.request == false){
             const inputRange = [
                 (index - 1) * CARD_WIDTH,
                 index * CARD_WIDTH,
@@ -113,7 +113,7 @@ function Map({ navigation, route }) {
                 {
                     dishData.map((marker, index) => {
                         
-                        if (marker.seller != 'Julien GODFROY') {
+                        if (marker.seller != 'Julien GODFROY' && marker.request == false) {
                         const scaleStyle = {
                             transform: [
                                 {
