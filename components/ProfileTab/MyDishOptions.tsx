@@ -83,7 +83,7 @@ function DishDetails({ navigation, route }) {
                             <Text style={{ color: '#ecf0f1', textAlign: 'center', fontSize: 18 }}>Retirer ce plat</Text>
                         </TouchableOpacity>
 
-                        <Demand dish={dishData}/>  
+                        <Demand dish={dishData} navigation={navigation}/>  
                     </View>
                 </View>
             </ScrollView>
@@ -152,7 +152,7 @@ function Demand(props) {
                                                         [
                                                             {
                                                                 text: "Retour",
-                                                                onPress: () => console.log("retour Pressed"),
+                                                                onPress: () => props.navigation.navigate('MyDishes'),
 
                                                             },
 

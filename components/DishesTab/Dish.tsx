@@ -1,7 +1,9 @@
 import React from 'react'
-import  {View , Image, Text, StyleSheet, TouchableOpacity, Alert  } from 'react-native' 
+import  {View , Image, Text, StyleSheet, TouchableOpacity, Alert, Dimensions  } from 'react-native' 
 import { useNavigation  } from '@react-navigation/native';
-import * as data from '../../database/dishes.json'
+
+
+const windowWidth = Dimensions.get('window').width;
 
 function Dish(props) {
     const navigation = useNavigation(); 
@@ -34,7 +36,9 @@ const style=StyleSheet.create({
         //marginHorizontal : 10,
         paddingTop : 10,
         paddingBottom : 10,
-        maxWidth:350,
+        //maxWidth:350,
+        maxWidth : (Dimensions.get('window').width)*0.96,
+        alignSelf : 'center'
         
     },
     

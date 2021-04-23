@@ -2,12 +2,29 @@
 import * as React from 'react';
 
 import { View, Text, TouchableOpacity, ScrollView, Image , StyleSheet} from 'react-native';
-import { Ionicons, MaterialCommunityIcons, Feather, } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Feather, FontAwesome } from '@expo/vector-icons';
+
+
+function Notification(){   //verifie si une demande est en attente pour pouvoir afficher une icone de notification en attente
+    const datadishes = require ('../../database/dishes.json')
+    var notification = 0
+    datadishes.map((dish) => {
+        if (dish.seller == "Julien GODFROY" && dish.request==true){
+            notification = 1;
+        }
+    })
+    if (notification == 1){
+    return( 
+        <FontAwesome style={style.notification} name="dot-circle-o" color={"#E67E22"} size={20}/>
+    )}
+    else{return(null)}
+    
+}
 
 
 function ProfileScreen({ navigation }) {
-    const data = require ('../../database/profile.json')
-    const [state] = React.useState(data);
+    const dataprofile = require ('../../database/profile.json')
+    const [state] = React.useState(dataprofile);
     return (
         <ScrollView>
             <View>
@@ -45,9 +62,13 @@ function ProfileScreen({ navigation }) {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('MyDishes', { screenName: 'Gérer mes plats' })}>
-                        <View style={style.menu_button}>
+                        <View style={[style.menu_button, {justifyContent: 'space-between'} ]}>
+                            <View style={{flexDirection : 'row'}}>
+
                             <MaterialCommunityIcons name="food-fork-drink" color={"#E67E22"} size={26} />
                             <Text style={style.text_menu}>Gérer mes plats</Text>
+                            </View>
+                            <Notification/>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Settings', { screenName: "Paramètres de l'application" })}>
@@ -131,7 +152,7 @@ const style = StyleSheet.create({
     stat_text: {
         marginHorizontal: 10,
         color: '#2980B9',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
 
 
@@ -151,8 +172,6 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 10,
 
-
-
     },
 
     text_menu: {
@@ -167,6 +186,12 @@ const style = StyleSheet.create({
         fontSize: 15,
         color: '#e74c3c'   //beau rouge pour la deconnexion
     },
+
+    notification:{
+        alignSelf: 'center',
+        
+        
+    }
 
 
 })

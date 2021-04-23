@@ -40,8 +40,8 @@ function Request(props) {
         )}
         else { 
             return (
-                <View style={style.reservation}>
-                    <Dish key={props.dish.dishID} dish={props.dish} />
+                <View style={style.reservation} key={props.dish.dishID}>
+                    <Dish dish={props.dish} />
                 </View>
             ) 
         }
@@ -63,14 +63,14 @@ const style = StyleSheet.create({
     text: {
         fontSize: 20,
         paddingHorizontal: 15,
-        paddingVertical: 15,
+        paddingTop: 15,
         textAlign: 'justify',
     },
 
     reservation: {
         fontSize: 18,
         paddingHorizontal: 6,
-        paddingLeft: 20,
+        //paddingLeft: 20,
         alignSelf: 'center',
         backgroundColor : 'white',
         borderRadius : 60,

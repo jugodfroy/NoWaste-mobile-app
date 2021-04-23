@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 import { Ionicons, } from '@expo/vector-icons';
 import StackHeader from '../Common/StackHeader'
@@ -73,6 +73,16 @@ function ProfileInfo({ navigation, route }) {
             <View style={{ flexDirection: 'row' }}>
 
               <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>{state.address}</Text>
+              <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
+            </View>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(Alert.alert('TO DEV'))}>
+          <View style={style.menu_button}>
+            <Text style={style.text_menu}>Photo de profile :</Text>
+            <View style={{ flexDirection: 'row' }}>
+
+              <Text style={{ color: 'grey', alignSelf: 'center', textAlign: 'right' }}>Changer de photo</Text>
               <Ionicons name="chevron-forward" color={"#E67E22"} size={20} style={style.cheveron} />
             </View>
           </View>

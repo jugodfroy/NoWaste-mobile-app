@@ -8,6 +8,8 @@ import DishDetails from '../DishesTab/DishDetails'
 const { width, height } = Dimensions.get("window");
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 const CARD_WIDTH = width * 0.8;
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 
 
@@ -21,7 +23,7 @@ function Map({ navigation, route }) {
             indexes.push(marker.dishID)
         }
     })
-    console.log(indexes)
+    //console.log(indexes)
 
 
 
@@ -46,7 +48,7 @@ function Map({ navigation, route }) {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index;
-                    console.log("touché?"+index)
+                    //console.log("touché?"+index)
                     const { coordinate } = dishData[indexes[index]];
                     _map.current.animateToRegion(
                         {
@@ -69,7 +71,7 @@ function Map({ navigation, route }) {
                 index * CARD_WIDTH,
                 ((index + 1) * CARD_WIDTH),
             ];
-            console.log(inputRange)
+            //console.log(inputRange)
             const scale = mapAnimation.interpolate({
                 inputRange,
                 outputRange: [1, 1.6, 1],
@@ -81,7 +83,7 @@ function Map({ navigation, route }) {
 
     const onMarkerPress = (mapEventData) => {   //amination du scrollview quand on clique sur un marker
         const markerID = mapEventData._targetInst.return.key -1;
-        console.log('markerID : '+markerID)
+        //console.log('markerID : '+markerID)
 
 
         let x = (markerID * CARD_WIDTH) + (markerID * 80);//80 en tatonant => valeur a changer si décalage après plusieurs plats
@@ -121,7 +123,7 @@ function Map({ navigation, route }) {
                                 },
                             ],
                         };
-                            console.log(marker.name + "by autre")
+                            //console.log(marker.name + "by autre")
                             return (
                                 <Marker key={index} coordinate={marker.coordinate} onPress={(e) => onMarkerPress(e)}>
                                     <Animated.View style={[style.markerWrap]}>
@@ -136,7 +138,7 @@ function Map({ navigation, route }) {
 
                         }
                         else{
-                            console.log(marker.name +"by juju")
+                            //console.log(marker.name +"by juju")
                             return(
                                 null
                             )
