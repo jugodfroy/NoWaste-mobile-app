@@ -37,8 +37,10 @@ const style=StyleSheet.create({
         paddingTop : 10,
         paddingBottom : 10,
         //maxWidth:350,
-        maxWidth : (Dimensions.get('window').width)*0.96,
-        alignSelf : 'center'
+        maxWidth : (Dimensions.get('window').width)*1,
+        alignSelf : 'center',
+        //minHeight : 250,
+        maxHeight : 250
         
     },
     

@@ -40,7 +40,7 @@ function Request(props) {
         )}
         else { 
             return (
-                <View style={style.reservation} key={props.dish.dishID}>
+                <View key={props.dish.dishID} style={style.reservation} >
                     <Dish dish={props.dish} />
                 </View>
             ) 
