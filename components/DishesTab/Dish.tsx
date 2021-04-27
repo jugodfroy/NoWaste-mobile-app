@@ -14,7 +14,7 @@ function Dish(props) {
                 <Image style={style.img} source={{uri: props.dish.picture}}/>
                 <View style={style.title_box}>
                     <Text style={[style.title, { fontWeight: 'bold' }]}>{props.dish.name}</Text>
-                    <Text style={style.price}>{props.dish.price} Token </Text>
+                    <Text style={style.price}>{props.dish.price} Tokens </Text>
                 </View>
                 <Text style={style.details} numberOfLines={2}>{props.dish.description}</Text>
                 <Text style={[style.details, { color: '#2980B9' }]}>360m de votre position </Text>
@@ -37,7 +37,7 @@ const style=StyleSheet.create({
         paddingTop : 10,
         paddingBottom : 10,
         //maxWidth:350,
-        maxWidth : (Dimensions.get('window').width)*1,
+        width : (Dimensions.get('window').width)*1,
         alignSelf : 'center',
         //minHeight : 250,
         maxHeight : 250

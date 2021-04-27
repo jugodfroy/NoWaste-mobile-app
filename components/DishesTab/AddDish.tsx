@@ -49,6 +49,22 @@ function AddDish({ navigation, route }) {
                     </View>
 
                     <View style={style.element}  >
+                        <Text style={style.text}>Plat cuisiné ?</Text>
+                        <RNPickerSelect
+
+                            style={PickerStyle}
+                            useNativeAndroidPickerStyle={false}
+                            placeholder={{ label: "Plat cuisiné ?", value: null }}
+                            onValueChange={(value) => console.log(value)}
+                            items={[
+                                { label: 'Oui', value: true },
+                                { label: 'Non', value: false },
+                                
+                            ]}
+                        />
+                    </View>
+
+                    <View style={style.element}  >
                         <Text style={style.text}>Principaux allergènes :</Text>
                         <Text style={style.text_details}>Arachides :</Text>
                         <RNPickerSelect

@@ -15,7 +15,7 @@ function DishDetails({ navigation, route }) {
                     <Image style={style.img} source={{uri: dishData.picture}} />
                     <View style={style.title_box}>
                         <Text style={[style.title, { fontWeight: 'bold' }]}>{dishData.name}</Text>
-                        <Text style={style.price}>1 Token </Text>
+                        <Text style={style.price}>{dishData.price} Tokens </Text>
                     </View>
 
                     <View>
@@ -34,7 +34,7 @@ function DishDetails({ navigation, route }) {
                             <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Indications :{'\n'}</Text>
                             <Text>Vegan : {dishData.vegan}{'\n'}
                                 Végétarien : {dishData.vege}{'\n'}
-                                Gluten :{dishData.name} {dishData.gluten}{'\n'}
+                                Gluten :{dishData.gluten}{'\n'}
                                 Arachides : {dishData.peanuts}{'\n'}
                                 Lait : {dishData.milk}{'\n'}
                                 Fruits de mer : {dishData.seafood}
