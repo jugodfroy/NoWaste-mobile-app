@@ -3,7 +3,9 @@
 
 ## Introduction
 
-NoWaste is a mobile application aimed at reducing food waste and alleviating student poverty. Developed using React Native, this app offers a practical and user-friendly platform to buy and sell food, promoting sustainability and affordability.
+NoWaste is a mobile application aimed at reducing food waste and alleviating student poverty. 
+Developed using React Native, the front-end offers a practical and user-friendly platform to buy and sell food, promoting sustainability and affordability.
+
 
 ## Features
 
