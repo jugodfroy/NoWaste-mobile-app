@@ -21,7 +21,7 @@ NoWaste is a mobile application aimed at reducing food waste and alleviating stu
 Clone the repository into your desired directory:
 
 ```bash
-git clone [repository-url]
+git clone [[repository-url]](https://github.com/jugodfroy/NoWaste-mobile-app)
 ```
 
 ## Getting Started
