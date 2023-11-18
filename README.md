@@ -1,22 +1,37 @@
+
 # NoWaste
-Ce projet consiste en une application mobile qui a pour but de réduire le gaspillage alimentaire et à réduire la précarité étudiante.
-Cette application est développée en React-Native.
 
-### Prérequis
+## Introduction
 
-Avoir NodeJS et expo d'installés + 
-Avoir un smartphone sous Android ou IOS avec l'application "EXPO GO" d'installée.
+NoWaste is a mobile application aimed at reducing food waste and alleviating student poverty. Developed using React Native, this app offers a practical and user-friendly platform to buy and sell food, promoting sustainability and affordability.
 
-### Téléchargement
+## Features
 
-Clonez le repository dans le dossier que vous souhaitez.
+- **Buy a Dish**: Browse and purchase meals at affordable prices.
+- **Sell a Dish**: Offer your excess food to others, reducing waste and earning some extra income.
+- **Interactive Map**: Explore available dishes near you with an easy-to-use interactive map, enhancing your experience of finding or selling food efficiently.
 
-### Lancement de l'application 
+## Prerequisites
 
-Ouvrir un terminal, aller dans la racine du dossier téléchargé puis utiliser la commande :
+- NodeJS and Expo should be installed on your development machine.
+- An Android or iOS smartphone with the "EXPO GO" app installed.
 
+## Installation
+
+Clone the repository into your desired directory:
+
+```bash
+git clone [repository-url]
 ```
-npm start
-```
 
-Utilisez l'appareil photo de votre smartphone pour scanner le QRcode qui apparaîtra dans le terminal. L'application NoWaste démarrera.
+## Getting Started
+
+1. Open a terminal and navigate to the root of the cloned directory.
+2. Run the application using the following command:
+
+   ```bash
+   npm start
+   ```
+
+3. Use your smartphone's camera to scan the QR code that appears in the terminal. This will launch the NoWaste application on your device.
+
