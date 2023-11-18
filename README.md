@@ -11,6 +11,10 @@ NoWaste is a mobile application aimed at reducing food waste and alleviating stu
 - **Sell a Dish**: Offer your excess food to others, reducing waste and earning some extra income.
 - **Interactive Map**: Explore available dishes near you with an easy-to-use interactive map, enhancing your experience of finding or selling food efficiently.
 
+## Screenshots
+![Screenshot of NoWaste App](screenshots.png "Screenshot of NoWaste App")
+
+
 ## Prerequisites
 
 - NodeJS and Expo should be installed on your development machine.
