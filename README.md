@@ -1,6 +1,6 @@
 # NoWaste
 Ce projet consiste en une application mobile qui a pour but de réduire le gaspillage alimentaire et à réduire la précarité étudiante.
-Cette application est développée en React-Native dans le cadre du la Junior Académie de JuniorISEP.
+Cette application est développée en React-Native.
 
 ### Prérequis
 
